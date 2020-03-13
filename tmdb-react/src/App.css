@@ -1,0 +1,29 @@
+body {
+  font-family: "Lora", serif;
+}
+
+.card {
+  margin-bottom: 0.5em;
+}
+
+header, h1, h2, h3, h4 {
+  font-family: "PT Sans", sans-serif;
+}
+
+header {
+  background-color: #6610f2;
+  color: #f8f9fa;
+  padding: 0.25em 0.5em;
+}
+
+main {
+  padding: 1em;
+}
+
+.card-title, .card-subtitle {
+  font-family: "PT Sans", sans-serif;
+}
+
+.moviePoster.card-img-top {
+  max-width: 200px;
+}
