@@ -19,7 +19,8 @@ const db = new TMDB(DB_NAME);
 
 api
   .route('/movies')
-  .get((_, res) => db.getMovies().then(movies => res.send(movies)));
+  .get((_, res) => db.getMovies().then(movies => res.send(movies)))
+  .post((req, res) => db.addMovie(req.body).then(movie => res.send(movie)));
 
 db.sanityCheck().then(() => {
   api.listen(PORT, () => {

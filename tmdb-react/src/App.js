@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import { fetchMovies } from "./tmdb-api-client";
+import { fetchMovies, addMovie } from "./tmdb-api-client";
 import { Spinner, Jumbotron } from "reactstrap";
 import MovieList from "./components/MovieList";
+import MovieForm from "./components/MovieForm";
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,11 @@ class App extends Component {
     });
   }
   render() {
+    const submitMovieForm = movie => {
+      return addMovie(movie).then(savedMovie => {
+        this.setState({ movies: this.state.movies.concat(savedMovie) });
+      });
+    };
     if (!this.state.movies) {
       return <Spinner color="primary" />;
     }
@@ -36,6 +42,7 @@ class App extends Component {
             For more components, see{" "}
             <a href="https://reactstrap.github.io/components/">reactstrap</a>.
           </p>
+          <MovieForm onSubmit={submitMovieForm} />
         </Jumbotron>
       </div>
     );

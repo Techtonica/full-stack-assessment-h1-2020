@@ -19,6 +19,25 @@ class TMDB {
   getMovies() {
     return this.db.any('SELECT * FROM movies');
   }
+
+  addMovie(movie) {
+    // Set some defaults. Otherwise pg-promise complains if any keys are missing.
+    const values = Object.assign(
+      {},
+      {
+        summary: null
+      },
+      movie
+    );
+    return this.db.one(
+      `
+      INSERT INTO movies (title, year, poster_image_url, director, summary)
+      VALUES ($/title/, $/year/, $/poster_image_url/, $/director/, $/summary/)
+      RETURNING *
+    `,
+      values
+    );
+  }
 }
 
 module.exports = TMDB;

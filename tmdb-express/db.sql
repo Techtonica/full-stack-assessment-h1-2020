@@ -27,11 +27,12 @@ SET default_table_access_method = heap;
 CREATE TABLE public.movies (
     id integer NOT NULL,
     title text NOT NULL,
-    year integer,
-    poster_image_url text,
-    director text,
+    year integer NOT NULL,
+    poster_image_url text NOT NULL,
+    director text NOT NULL,
     summary text
 );
+
 
 --
 -- Name: movies_id_seq; Type: SEQUENCE; Schema: public; Owner: bill
@@ -76,7 +77,7 @@ COPY public.movies (id, title, year, poster_image_url, director, summary) FROM s
 -- Name: movies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bill
 --
 
-SELECT pg_catalog.setval('public.movies_id_seq', 4, true);
+SELECT pg_catalog.setval('public.movies_id_seq', 10, true);
 
 
 --

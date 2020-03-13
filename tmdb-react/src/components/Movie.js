@@ -19,7 +19,7 @@ const Movie = ({ title, year, director, poster_image_url, summary }) => {
             {title} ({year})
           </CardTitle>
           <CardSubtitle>{director}</CardSubtitle>
-          <CardText>{summary}</CardText>
+          <CardText>{summary || "No summary."}</CardText>
         </CardBody>
       </Card>
     </Col>
