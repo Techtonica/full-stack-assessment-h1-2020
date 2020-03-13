@@ -2,7 +2,7 @@ const pgp = require('pg-promise')();
 
 class TMDB {
   constructor(name) {
-    const connectionString = `postgres://postgres@localhost:5432/${name}`;
+    const connectionString = `postgres://localhost:5432/${name}`;
     // eslint-disable-next-line no-console
     console.log('Postgres DB => ', connectionString);
     this.db = pgp(connectionString);
