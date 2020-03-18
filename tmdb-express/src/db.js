@@ -1,6 +1,17 @@
 const pgp = require('pg-promise')();
 
+/**
+ * An object that has methods matching useful database queries.
+ * Use `this.db` to access a connected pg-promise connection.
+ * Make sure to return the promise!
+ *
+ * For examples of other queries, see
+ * [pghttps://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example
+ */
 class TMDB {
+  /**
+   * @param {String} name - name of database to connect to
+   */
   constructor(name) {
     const connectionString = `postgres://localhost:5432/${name}`;
     // eslint-disable-next-line no-console
